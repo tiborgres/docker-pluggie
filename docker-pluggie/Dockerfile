@@ -77,9 +77,8 @@ RUN if [ "$BUILD_ARCH" = "armv7" ]; then \
         S6_ARCH="i686"; \
     elif [ "$BUILD_ARCH" = "amd64" ]; then \
         S6_ARCH="x86_64"; \
-    elif [ "$BUILD_ARCH" = "aarch64" ]; then \
-        S6_ARCH="aarch64"; \
     else \
+    # aarch64, armhf
         S6_ARCH="$BUILD_ARCH"; \
     fi \
     && echo $S6_ARCH > /s6_arch \
