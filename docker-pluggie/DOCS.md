@@ -79,4 +79,4 @@ keep_alive: 25                  # Optional: WireGuard keepalive interval in seco
 ## Support
 
 - Got questions? Visit our website at [https://pluggie.net](https://pluggie.net)
-- Need help? Contact our support team through your [Pluggie Admin Interface](https://admin.pluggie.net/support)
+- Need help? Contact our support team through support@pluggie.net

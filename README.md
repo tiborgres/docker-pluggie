@@ -3,7 +3,7 @@
 
 ## About
 
-Pluggie (https://pluggie.net/) provides secure Internet access to devices behind NAT, while offering filtering by continents, countries (Geo IP), or IP ranges. It functions as a connector, utilizing Pluggie servers as intermediaries to establish the connection.
+Pluggie provides secure Internet access to devices behind NAT, while offering filtering by continents, countries (Geo IP), or IP ranges. It functions as a connector, utilizing Pluggie servers as intermediaries to establish the connection.
 
 
 ## Features
