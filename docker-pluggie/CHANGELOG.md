@@ -1,7 +1,13 @@
+## v0.3.4
+
+- fix:
+  - traffic info view on mobiles in web interface
+
+
 ## v0.3.3
 
 - feature:
-  - add consumed traffic info into Pluggie sidebar page so there is no need to go check it via https://my.pluggie.net interface
+  - add consumed traffic info into Pluggie web interface so there is no need to go check it via https://my.pluggie.net interface
 
 
 ## v0.3.2
