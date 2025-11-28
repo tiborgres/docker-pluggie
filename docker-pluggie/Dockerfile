@@ -125,6 +125,7 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -x \
     && apk add --no-cache \
         nginx \
+        nginx-mod-http-brotli \
         wireguard-tools \
         openresolv \
         openssl \
