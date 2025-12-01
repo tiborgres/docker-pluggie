@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration Required - Pluggie</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <style>
+        body {
+            background-color: #f5f7fb;
+        }
+        .page-wrapper {
+            padding: 1.5rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .error-icon {
+            font-size: 4rem;
+            color: #f59f00;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            text-align: left;
+            margin: 0;
+            white-space: pre;
+        }
+        .code-block .comment { color: #64748b; }
+        .code-block .key { color: #7dd3fc; }
+        .code-block .value { color: #86efac; }
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background-color: #206bc4;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+        .example-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Dark theme variables and styles */
+        .theme-dark {
+            --bg-surface-dark: #1a2234;
+            --bg-surface-dark-alt: #141e2d;
+            --card-bg-dark: rgba(30, 41, 59, 0.95);
+            --text-light: #e9ecef;
+            --text-muted-dark: #9aa5b9;
+            --highlight-blue: #60a5fa;
+            --success-color: #25c26f;
+            --warning-color: #f59f00;
+            --danger-color: #d63939;
+            --border-color: rgba(255, 255, 255, 0.1);
+            color-scheme: dark;
+        }
+
+        .theme-dark body {
+            background-color: var(--bg-surface-dark);
+            color: var(--text-light);
+        }
+
+        .theme-dark .page-wrapper {
+            background-color: var(--bg-surface-dark);
+        }
+
+        .theme-dark .card {
+            background-color: var(--card-bg-dark);
+            border-color: var(--border-color);
+            color: var(--text-light);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-dark .text-muted {
+            color: var(--text-muted-dark) !important;
+        }
+
+        .theme-dark h1, .theme-dark h2, .theme-dark h3,
+        .theme-dark h4, .theme-dark h5, .theme-dark h6 {
+            color: var(--text-light);
+        }
+
+        .theme-dark .code-block {
+            background-color: #0f172a;
+        }
+
+        .theme-dark .alert {
+            border-width: 1px;
+        }
+
+        .theme-dark .alert-warning {
+            background-color: rgba(245, 159, 0, 0.1);
+            border-color: var(--warning-color);
+            color: var(--text-light);
+        }
+
+        .theme-dark .alert-warning .ti {
+            color: var(--warning-color);
+        }
+
+        .theme-dark hr {
+            border-color: var(--border-color);
+        }
+
+        .theme-dark code {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .theme-dark .example-card {
+            background-color: rgba(30, 41, 59, 0.5);
+            border-color: var(--border-color);
+        }
+
+        .theme-dark .accordion-button {
+            background-color: rgba(30, 41, 59, 0.5);
+            color: var(--text-light);
+        }
+
+        .theme-dark .accordion-button:not(.collapsed) {
+            background-color: rgba(96, 165, 250, 0.1);
+            color: var(--text-light);
+        }
+
+        .theme-dark .accordion-button::after {
+            filter: invert(1);
+        }
+
+        .theme-dark .accordion-body {
+            background-color: var(--card-bg-dark);
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body class="theme-light">
+    <div class="page">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <div class="text-center mb-4">
+                                <i class="ti ti-alert-triangle error-icon"></i>
+                                <h1 class="mt-3">Configuration Required</h1>
+                                <p class="text-muted">The target web server rejected the connection from Pluggie.</p>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="mb-3">What happened?</h3>
+                                    <p>The web server you configured as <strong>Proxied Host</strong> doesn't accept connections from the Pluggie container. This typically happens when the server has reverse proxy protection enabled.</p>
+
+                                    <hr class="my-4">
+
+                                    <h3 class="mb-3">How to fix it</h3>
+                                    <p>Configure your target web server to trust connections from the Pluggie container. You need to add the IP address of the Pluggie container to the list of trusted proxies. The exact steps depend on your server software:</p>
+
+                                    <div class="accordion mb-4" id="serverExamples">
+                                        <div class="accordion-item example-card">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nginxExample">
+                                                    <i class="ti ti-brand-docker me-2"></i>Nginx
+                                                </button>
+                                            </h2>
+                                            <div id="nginxExample" class="accordion-collapse collapse" data-bs-parent="#serverExamples">
+                                                <div class="accordion-body">
+                                                    <p>Add the Pluggie container IP to your <code>set_real_ip_from</code> directive:</p>
+<pre class="code-block"><span class="key">set_real_ip_from</span> <span class="value">PLUGGIE_IP</span>;
+<span class="key">real_ip_header</span> <span class="value">X-Forwarded-For</span>;</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item example-card">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apacheExample">
+                                                    <i class="ti ti-server me-2"></i>Apache
+                                                </button>
+                                            </h2>
+                                            <div id="apacheExample" class="accordion-collapse collapse" data-bs-parent="#serverExamples">
+                                                <div class="accordion-body">
+                                                    <p>Enable <code>mod_remoteip</code> and configure trusted proxies:</p>
+<pre class="code-block"><span class="key">RemoteIPHeader</span> <span class="value">X-Forwarded-For</span>
+<span class="key">RemoteIPTrustedProxy</span> <span class="value">PLUGGIE_IP</span></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item example-card">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#haExample">
+                                                    <i class="ti ti-home me-2"></i>Home Assistant
+                                                </button>
+                                            </h2>
+                                            <div id="haExample" class="accordion-collapse collapse" data-bs-parent="#serverExamples">
+                                                <div class="accordion-body">
+                                                    <p>Add to your <code>configuration.yaml</code>:</p>
+<pre class="code-block"><span class="key">http:</span>
+  <span class="key">use_x_forwarded_for:</span> <span class="value">true</span>
+  <span class="key">trusted_proxies:</span>
+    <span class="value">- PLUGGIE_IP</span></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-warning mb-0">
+                                        <div class="d-flex">
+                                            <div class="alert-icon"><i class="ti ti-alert-triangle"></i></div>
+                                            <div>
+                                                <h4 class="alert-title">What IP address to use?</h4>
+                                                <p class="mb-0">Replace <code>PLUGGIE_IP</code> with the IP address of the server where Pluggie is running. This is the address your target web server sees when receiving connections from Pluggie.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0/dist/js/tabler.min.js"></script>
+    <script>
+        // Automatic Dark Theme Detection
+        (function() {
+            function applySystemTheme() {
+                const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.body.className = isDark ? 'theme-dark' : 'theme-light';
+            }
+
+            // Apply theme immediately
+            applySystemTheme();
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
+        })();
+    </script>
+</body>
+</html>
