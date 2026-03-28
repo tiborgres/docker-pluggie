@@ -63,8 +63,7 @@ RUN set -x \
         rust \
     # Install Python packages to a temporary directory
     && mkdir -p /wheels \
-    && pip3 wheel --wheel-dir=/wheels --no-cache-dir --find-links \
-        "https://wheels.home-assistant.io/alpine-$(cut -d '.' -f 1-2 < /etc/alpine-release)/${BUILD_ARCH}/" \
+    && pip3 wheel --wheel-dir=/wheels --no-cache-dir \
         cryptography==${CRYPTOGRAPHY_VERSION} \
         certbot==${CERTBOT_VERSION} \
         acme==${ACME_VERSION} \

@@ -1,3 +1,12 @@
+## v0.5.0
+
+- get python wheels directly from pypi not from home-assistant
+
+- bump versions:
+  - alpinelinux 3.22 --> 3.23
+  - cryptography 46.0.5 --> 46.0.6
+
+
 ## v0.4.6
 
 - lower S6_VERBOSITY log level 1 --> 0
