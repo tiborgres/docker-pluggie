@@ -1,3 +1,17 @@
+## v0.5.1
+
+- bump versions:
+  - certbot 5.4.0 --> 5.5.0
+  - cryptography 46.0.6 --> 46.0.7
+
+- BREAKING CHANGE: dropped support for platforms armhf, armv7 and i386
+  - PyPI does not provide pre-built `musllinux` wheels for `armv7` and `i386`
+  - PyPI does not provide any pre-built wheels for `armhf` (ARMv6) at all
+  - as a result, `cryptography` package would require compilation from source
+    including a Rust toolchain, which is not supported on these platforms in Alpine Linux
+  - supported platforms are now: aarch64, amd64
+
+
 ## v0.5.0
 
 - get python wheels directly from pypi not from home-assistant

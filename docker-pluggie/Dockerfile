@@ -37,11 +37,6 @@ ENV S6_VERBOSITY=0 \
     S6_CMD_WAIT_FOR_SERVICES=1 \
     S6_SERVICES_READYTIME=50
 
-# OpenSSL environment variables for cryptography build on ARM platforms
-ENV OPENSSL_DIR=/usr \
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig \
-    PKG_CONFIG_ALLOW_CROSS=1
-
 # Set shell
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
