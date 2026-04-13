@@ -1,8 +1,14 @@
+## v0.5.2
+
+- improved self-recovery during API server or Pluggie endpoint outages:
+  - added proper error states (no_connection, endpoint_unreachable) to prevent misclassifying network issues as invalid access key
+  - fixed configuration cleanup targeting pluggie.json instead of HA-managed options.json
+
+
 ## v0.5.1
 
 - bump versions:
   - certbot 5.4.0 --> 5.5.0
-  - cryptography 46.0.6 --> 46.0.7
 
 - BREAKING CHANGE: dropped support for platforms armhf, armv7 and i386
   - PyPI does not provide pre-built `musllinux` wheels for `armv7` and `i386`
