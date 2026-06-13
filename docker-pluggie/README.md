@@ -1,20 +1,22 @@
-# Pluggie Home Assistant Add-on
+# Pluggie Docker Edition
 
 
 ## About
 
 Pluggie (https://pluggie.net/) provides secure Internet access to devices behind NAT, while offering filtering by continents, countries (Geo IP), or IP ranges. It functions as a connector, utilizing Pluggie servers as intermediaries to establish the connection.
 
+This Docker edition runs the same Pluggie connector as a standalone container, suitable for any Docker-capable host.
+
 
 ## Features
-- Zero knowledge about your traffic which is fully encrypted between your Home Assistant and you (or your clients). Pluggie servers just pass traffic.
+- Zero knowledge about your traffic which is fully encrypted between your device and you (or your clients). Pluggie servers just pass traffic.
 - NO traffic decryption/encryption on Pluggie servers at all; only necessary info such as SNI is required to route traffic.
-- SSL/TLS certificate issuing via Let's Encrypt is done on your Home Assistant.
-- Assign your own domain name for your Home Assistant (no domain transfer required) or just use _some_hostname_.pluggie.net.
+- SSL/TLS certificate issuing via Let's Encrypt is done locally inside the container.
+- Assign your own domain name for the proxied device (no domain transfer required) or just use _some_hostname_.pluggie.net.
 - Filtering out traffic based on continents, countries (Geo IP), or IP addresses/ranges.
 
-With Pluggie, you don't need to configure router, firewall, or IPv6.
-Just install, provide the Access Key, run, and enjoy access to your Home Assistant.
+With Pluggie, you don't need to configure router, firewall, IPv6 or VPS in datacenter.
+Just run the container, provide the Access Key, and enjoy access to your device.
 
 
 ## Used Technologies
@@ -33,7 +35,7 @@ Project inspired by:
 - [WireGuard Add-on][wg_addon]
 - [Nginx Proxy Manager][nginxproxymanager]
 - [Tailscale][tailscale]
-- [Cloudflare Tunnel][tailscale]
+- [Cloudflare Tunnel][cloudflare]
 
 For a full list of all authors and contributors of Wireguard add-on,
 check [the contributor's page][wg_addon_contributors].
