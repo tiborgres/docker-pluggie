@@ -1,7 +1,7 @@
 ---
 build_from:
-  aarch64: docker.io/library/alpine:3.23
-  amd64: docker.io/library/alpine:3.23
+  aarch64: docker.io/library/alpine:3.24
+  amd64: docker.io/library/alpine:3.24
 args:
   CRYPTOGRAPHY_VERSION: 48.0.1
   CERTBOT_VERSION: 5.6.0
